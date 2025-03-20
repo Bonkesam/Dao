@@ -10,6 +10,10 @@ import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 contract GovToken is ERC20, ERC20Permit, ERC20Votes {
     constructor() ERC20("MyToken", "MTK") ERC20Permit("MyToken") {}
 
+    //This mint function is only for testing purposes
+    function mint(address to, uint256 amount) public {
+        _mint(to, amount);
+    }
     function clock() public view override returns (uint48) {
         return uint48(block.timestamp);
     }
